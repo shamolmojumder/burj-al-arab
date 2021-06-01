@@ -10,6 +10,8 @@ import Login from './components/Login/Login';
 import Book from './components/Book/Book';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Prebuildsignin from './components/Prebuildsignin/Prebuildsignin';
+
 
 export const UserContext =createContext()
 
@@ -30,6 +32,9 @@ function App() {
             <PrivateRoute path="/book/:bedType">
               <Book />
             </PrivateRoute>
+            <Route path="/prebuildsignin">
+              <Prebuildsignin></Prebuildsignin>
+            </Route>
             <Route exact path="/">
               <Home />
             </Route>
