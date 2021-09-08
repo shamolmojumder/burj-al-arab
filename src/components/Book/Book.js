@@ -28,7 +28,16 @@ const Book = () => {
       setSelectedDate(newDates);
     };
     const handleBooking=()=>{
-
+      const newBooking={...loggedInUser,...selectedDate};
+      fetch('http://localhost:5000/addBooking',{
+        method:'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newBooking)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      })
     }
     return (
         <div style={{textAlign: 'center'}}>
@@ -40,7 +49,7 @@ const Book = () => {
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
-          format="MM/dd/yyyy"
+          format="dd/MM/yyyy"
           margin="normal"
           id="date-picker-inline"
           label="Check In Date"
@@ -54,7 +63,7 @@ const Book = () => {
           margin="normal"
           id="date-picker-dialog"
           label="Check Out Date"
-          format="MM/dd/yyyy"
+          format="dd/MM/yyyy"
           value={selectedDate.checkOut}
           onChange={handleOutDate}
           KeyboardButtonProps={{
