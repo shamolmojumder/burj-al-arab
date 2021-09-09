@@ -1,8 +1,8 @@
-import React, { useEffect, useState,useContext } from 'react';
-import UserContext from '../../App'
+import React, { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../App';
 const Bookings = () => {
-   const[bookings,setBookings] = useState([])
-   const[loggedInUser,setLoggedInUser] =useContext(UserContext)
+    const[loggedInUser,setLoggedInUser] =useContext(UserContext);
+   const[bookings,setBookings] = useState([]);
    useEffect(()=>{
     fetch('http://localhost:5000/bookings?email='+loggedInUser.email)
     .then(res=>res.json())

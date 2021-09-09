@@ -21,15 +21,15 @@ const Book = () => {
     const handleCheckInDate = (date) => {
         const newDates={...selectedDate}
         newDates.checkIn=date;
-      setSelectedDate(newDates);
+        setSelectedDate(newDates);
     };
-    const handleOutDate = (date) => {
+    const handleCheckOutDate = (date) => {
         const newDates={...selectedDate}
         newDates.checkOut=date;
-      setSelectedDate(newDates);
+        setSelectedDate(newDates);
     };
     const handleBooking=()=>{
-      const newBooking={...loggedInUser,...selectedDate};
+      const newBooking= {...loggedInUser,...selectedDate};
       fetch('http://localhost:5000/addBooking',{
         method:'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -66,7 +66,7 @@ const Book = () => {
                   label="Check Out Date"
                   format="dd/MM/yyyy"
                   value={selectedDate.checkOut}
-                  onChange={handleOutDate}
+                  onChange={handleCheckOutDate}
                   KeyboardButtonProps={{
                     'aria-label': 'change date',
                   }}
