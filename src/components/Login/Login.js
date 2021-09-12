@@ -42,6 +42,7 @@ const Login = () => {
     const storeAuthToken=()=>{
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
       .then(function(idToken) {
+        console.log('idtoken',idToken);
         sessionStorage.setItem('token',idToken);
         // Send token to your backend via HTTPS
         // ...
