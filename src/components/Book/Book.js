@@ -10,7 +10,8 @@ import {
 } from '@material-ui/pickers';
 import { Button } from '@material-ui/core';
 import Bookings from '../Bookings/Bookings';
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
     const {bedType} = useParams();
     const [loggedInUser,setLoggedInUser] =useContext(UserContext);
     const [selectedDate, setSelectedDate] = useState({
